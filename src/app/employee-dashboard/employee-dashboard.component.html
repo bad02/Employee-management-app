@@ -1,0 +1,154 @@
+  <!-- bootstrap css -->  
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/dataTables.jqueryui.min.js"></script>
+  <script src="https://cdn.datatables.net/scroller/2.0.7/js/dataTables.scroller.min.js"></script>  -->
+  <nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container-fluid">
+        <h2>Employee Management</h2>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" style="color: white;" aria-current="page" href="#">Logout</a>
+          </li> 
+          
+        </ul>
+        <form class="d-flex" role="search">
+            <button class="btn btn-success" type="button" data-bs-toggle="modal" (click)="clickAddEmp()" data-bs-target="#exampleModal">
+                Add Employee
+            </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+ 
+<!--Jumbotran-->
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Employee Records</h1> 
+    </div>
+</div>
+<!--Table-->
+<button class="btn btn-danger" id="cv" (click)="toggleView()">Card View</button>
+<table id="example"  class="table table-striped table-bordered"  datatable [dtOptions]="dtOptions" class="row-border hover" cellspacing="0" width="100%" [dtTrigger]="dtTrigger">
+    <thead>
+        <tr id="trhead">
+            <th scope="col">Emp ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Address</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of allEmployeeData">  <!--get-->
+            <td scope="col">{{data.id}}</td>
+            <td scope="col">{{data.name}}</td>
+            <td scope="col">{{data.email}}</td>
+            <td scope="col">{{data.mobile}}</td>
+            <td scope="col">{{data.address}}</td>
+            <td scope="col">{{data.designation}}</td>
+            <td scope="col"><button class="btn btn-info" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEditEmployee(data)">Edit</button>&nbsp;
+                <button class="btn btn-danger" (click)="deleteEmployee(data)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formValue">
+                    <div class="mb-3">
+                        <label for="exampleInputName" class="form-label">Name</label>
+                        <input type="text" formControlName="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp">
+                        <div id="nameHelp" class="form-text">Enter Name.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputMobile" class="form-label">Mobile</label>
+                        <input type="text" formControlName="mobile" class="form-control" id="exampleInputMobile">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputAddress" class="form-label">Address</label>
+                        <input type="text" formControlName="address" class="form-control" id="exampleInputAddress" aria-describedby="addressHelp">
+                        <div id="addressHelp" class="form-text">Enter Address.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputDesignation" class="form-label">Designation</label>
+                        <input type="text" formControlName="designation" class="form-control" id="exampleInputDesignation"
+                            aria-describedby="designationHelp">
+                        <div id="designationHelp" class="form-text">Enter Designation.</div>
+                    </div> 
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button *ngIf="showAdd"  type="button" class="btn btn-primary" (click)="addEmployee()">Add Details</button>
+                <button *ngIf="showBtn"  type="button" class="btn btn-primary" (click)="updateEmployee()">Update Details</button>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+
+    <style>
+        body {
+margin: 2em;
+}
+
+.table-bordered.card {
+border: 0 !important;
+}
+.card thead {
+display: none;
+}
+.disNone {
+display: none;
+}
+.disBlock {
+display: block;
+}
+.card tbody tr {
+float: left;
+width: 25em;
+margin: 0.5em;
+border: 1px solid #bfbfbf;
+border-radius: 0.5em;
+background-color: transparent !important;
+box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+.card tbody tr td {
+display: block;
+border: 0;
+}
+
+p {
+text-align: center;
+color: limegreen;
+font-size: 1.5em;
+font-weight: bold;
+text-shadow: 1px 1px 2px #000;
+margin-bottom: 1.2em;
+}
+
+    </style>

@@ -1,0 +1,142 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "ALEX",
+      "email": "ALEX@gmail.com",
+      "mobile": "6476578432",
+      "address": "USA",
+      "designation": "ENGINEER"
+    },
+    {
+      "id": 4,
+      "name": "JIM",
+      "email": "JIM@gmail.com",
+      "mobile": "6574356986",
+      "address": "INDIA",
+      "designation": "DATA SCIENTIST"
+    },
+    {
+      "id": 5,
+      "name": "LILLY",
+      "email": "LILLY@gmail.com",
+      "mobile": "0567435621",
+      "address": "INDIA",
+      "designation": "DATA SCIENTIST"
+    },
+    {
+      "id": 6,
+      "name": "AHEMAD",
+      "email": "AHEMAD@gmail.com",
+      "mobile": "5478621098",
+      "address": "UNITED KINGDOM",
+      "designation": "DOCTOR"
+    },
+    {
+      "id": 7,
+      "name": "SHIVAM",
+      "email": "SHIVAM@gmail.com",
+      "mobile": "4564369665",
+      "address": "INDIA",
+      "designation": "SOFTWARE ENGINEER"
+    },
+    {
+      "id": 8,
+      "name": "WILLY",
+      "email": "WILLY@gmail.com",
+      "mobile": "5374835475",
+      "address": "NEW ZEALAND",
+      "designation": "INSPECTOR"
+    },
+    {
+      "id": 9,
+      "name": "TIM ",
+      "email": "TIM@gmail.com",
+      "mobile": "6487353485",
+      "address": "USA",
+      "designation": "TIM "
+    },
+    {
+      "id": 10,
+      "name": "RAHUL",
+      "email": "RAHUL@gmail.com",
+      "mobile": "7453855383",
+      "address": "INDIA",
+      "designation": "DATA SCIENTIST"
+    },
+    {
+      "id": 11,
+      "name": "SAM",
+      "email": "SAM@gmail.com",
+      "mobile": "6785364675",
+      "address": "UNITED KINGDOM",
+      "designation": "ENGINEER"
+    },
+    {
+      "id": 12,
+      "name": "SOPHIE",
+      "email": "SOPHIE@gmail.com",
+      "mobile": "6547658765",
+      "address": "USA",
+      "designation": "ENGINEER"
+    },
+    {
+      "id": 13,
+      "name": "ghfhy",
+      "email": "ygy@gmail.com",
+      "mobile": "6767576464",
+      "address": "jhfur",
+      "designation": "ghfhy"
+    },
+    {
+      "id": 14,
+      "name": "jguih",
+      "email": "uigui",
+      "mobile": "65654657587",
+      "address": "jg78t78t8y",
+      "designation": "yufyugiuhkhkg"
+    }
+  ],
+  "signup": [
+    {
+      "username": "test",
+      "password": "test",
+      "id": 1
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 2
+    },
+    {
+      "username": "admin1",
+      "password": "admin1",
+      "id": 3
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 4
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 5
+    },
+    {
+      "username": "admin",
+      "password": "admiin",
+      "id": 6
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 7
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 8
+    }
+  ]
+}
