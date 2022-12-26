@@ -14,9 +14,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" style="color: white;" aria-current="page" href="#">Logout</a>
-          </li> 
-          
+            <a class="nav-link active" style="color: white;" aria-current="page" href="">Logout</a>
+          </li>  
         </ul>
         <form class="d-flex" role="search">
             <button class="btn btn-success" type="button" data-bs-toggle="modal" (click)="clickAddEmp()" data-bs-target="#exampleModal">
@@ -67,46 +66,48 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
+        <form [formGroup]="formValue">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form [formGroup]="formValue">
+               
                     <div class="mb-3">
                         <label for="exampleInputName" class="form-label">Name</label>
-                        <input type="text" formControlName="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp">
+                        <input type="text" formControlName="name" name="name" class="form-control" required id="exampleInputName" aria-describedby="nameHelp">
                         <div id="nameHelp" class="form-text">Enter Name.</div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" formControlName="email" name="email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputMobile" class="form-label">Mobile</label>
-                        <input type="text" formControlName="mobile" class="form-control" id="exampleInputMobile">
+                        <input type="text" formControlName="mobile" name="mobile" required class="form-control" id="exampleInputMobile">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputAddress" class="form-label">Address</label>
-                        <input type="text" formControlName="address" class="form-control" id="exampleInputAddress" aria-describedby="addressHelp">
+                        <input type="text" formControlName="address" name="address" required class="form-control" id="exampleInputAddress" aria-describedby="addressHelp">
                         <div id="addressHelp" class="form-text">Enter Address.</div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputDesignation" class="form-label">Designation</label>
-                        <input type="text" formControlName="designation" class="form-control" id="exampleInputDesignation"
+                        <input type="text" formControlName="designation" name ="designation" required class="form-control" id="exampleInputDesignation"
                             aria-describedby="designationHelp">
                         <div id="designationHelp" class="form-text">Enter Designation.</div>
                     </div> 
-                </form>
+               
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button *ngIf="showAdd"  type="button" class="btn btn-primary" (click)="addEmployee()">Add Details</button>
-                <button *ngIf="showBtn"  type="button" class="btn btn-primary" (click)="updateEmployee()">Update Details</button>
+                <input type="submit" class="btn btn-secondary" data-bs-dismiss="modal" value="Close"/> 
+                <input *ngIf="showAdd"  type="submit" class="btn btn-primary" (click)="addEmployee()" value="Add Details" />
+                <input *ngIf="showBtn"  type="submit" class="btn btn-primary" (click)="updateEmployee()" value="Update Details"/> 
             </div>
         </div>
+    </form>
     </div>
 </div>
  
@@ -152,3 +153,4 @@ margin-bottom: 1.2em;
 }
 
     </style>
+    
