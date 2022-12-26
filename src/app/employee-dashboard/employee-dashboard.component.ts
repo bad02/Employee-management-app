@@ -90,23 +90,53 @@ export class EmployeeDashboardComponent implements OnInit {
     this.showBtn = true;
   }
   //Subscribe
-  addEmployee() {
-    this.employeeObj.name = this.formValue.value.name;
-    this.employeeObj.email = this.formValue.value.email;
-    this.employeeObj.mobile = this.formValue.value.mobile;
-    this.employeeObj.address = this.formValue.value.address;
-    this.employeeObj.designation = this.formValue.value.designation;
-
-    this.api.postEmployee(this.employeeObj).subscribe(res => {
-      console.log(res);
-      alert("Record inserted");
-      this.formValue.reset();
-      this.ngOnInit();
-      this.getAllData();
-      window.location.reload();
-    }, err => {
-      alert("Something went wrong" + err)
-    })
+  addEmployee() { 
+    if(this.formValue.value.name==null)
+    {
+      alert("Please insert name.");
+      return false;
+    }
+    else if(this.formValue.value.email==null)
+    {
+      alert("Please insert email");
+      return false;
+    }
+    else if(this.formValue.value.mobile==null)
+    {
+      alert("Please insert mobile");
+      return false;
+    }
+    else if(this.formValue.value.address==null)
+    {
+      alert("Please insert address");
+      return false;
+    }
+    else if(this.formValue.value.designation==null)
+    {
+      alert("Please insert designation");
+      return false;
+    }
+    else
+    {
+      this.employeeObj.name = this.formValue.value.name;
+      this.employeeObj.email = this.formValue.value.email;
+      this.employeeObj.mobile = this.formValue.value.mobile;
+      this.employeeObj.address = this.formValue.value.address;
+      this.employeeObj.designation = this.formValue.value.designation;
+  
+      this.api.postEmployee(this.employeeObj).subscribe(res => {
+        console.log(res);
+        alert("Record inserted");
+        this.formValue.reset();
+        this.ngOnInit();
+        this.getAllData();
+        window.location.reload();
+      }, err => {
+        alert("Something went wrong" + err)
+      })
+      return;
+    }
+    
   }
 
   //get data
